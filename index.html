@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star turn</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-<YOUR_INTEGRITY_HASH>" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-R6/u7mBslAqkSJaFZ4F+zGDiqSvOR6Rr8jBdE1SdC+s/92wKi49F+2e7VUG/jj7c2F6b3HodOz++J1dz0+2Vzw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <!-- Additional CSS for enhanced UI -->
+    <link href="./codex/main-styles/enhanced-styles.css" rel="stylesheet">
+
+    <link href="./codex/sidebar/sidebar.css" rel="stylesheet">
+
+    <link href="./codex/main-feed/feeds.css" rel="stylesheet">
+
+    <link href="./codex/navi-bar/navi.css" rel="stylesheet">
+    <link href="./codex/navi-bar/name.css" rel="stylesheet">
+
+
+    <link href="./codex/sidebar/settings/settings.css" rel="stylesheet">
+
+    <link href="./codex/profile-picture/profile/profile.css" rel="stylesheet">
+    <link href="./codex/profile-picture/escllipse_verti.css" rel="stylesheet">
+
+    <link href="./codex/profile-picture/add/actual/add.css" rel="stylesheet">
+
+
+    <link href="./codex/search/search.css" rel="stylesheet">
+
+    <link href="./codex/forms/media/vid.css" rel="stylesheet">
+    <link href="./codex/forms/media/choose-video/choose-media.css" rel="stylesheet">
+
+    <link href="./codex/Manage-Content/manage-content.css" rel="stylesheet">
+
+
+    
+
+  
+</head>
+<body>
+    <!-- Main Content Area -->
+    <div class="main-container" id="mainContent">
+        <!-- Top Navigation Bar -->
+        <!-- Top Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light w-100 p-0">
+            <div class="container-fluid d-flex justify-content-between align-items-center p-0">
+                <!-- Left Side: Sidebar Menu Icon and Logo -->
+                <div class="d-flex align-items-center logo-name-container mt-2">
+                    <button class="btn btn-outline-secondary mr-3" id="menuButton" aria-label="Menu">
+                        <i class="fas fa-bars fa-lg"></i>
+                    </button>
+
+                    <span class="SKYLite">
+                        <span class="letter-s">S</span>
+                        <span class="letter-k">K</span>
+                        <span class="letter-y">Y</span>
+                        <span class="letter-l">L</span>
+                        <span class="letter-i">i</span>
+                        <span class="letter-t">t</span>
+                        <span class="letter-e">e</span>
+                    </span>
+                </div>
+
+                <!-- Right Side: Profile Photo with Search Icon -->
+                <div class="d-flex align-items-center mt-2">
+                    <div class="search-icon-container">
+                        <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
+                    </div>
+                    <img id="profilePhoto" src="assets/photos/blank-profile.png" alt="Profile Photo" class="rounded-circle profile-photo" data-toggle="modal" data-target="#profileModal">
+                </div>
+            </div>
+        </nav>
+    
+    <!-- Search Section -->
+    <!-- Search Section -->
+    <div id="searchSection" class="search-section d-none">
+        <div class="search-header">
+            <i class="fas fa-arrow-left fa-lg" id="closeSearchIcon" aria-label="Close Search"></i>
+            <div class="search-input-wrapper">
+                <div class="search-input-container">
+                    <input type="text" class="form-control search-input" placeholder="Type your search here...">
+                    <i class="fa-solid fa-x clear-icon" style="color: #000000;"></i>
+                </div>
+            </div>
+        </div>
+        <div class="categories-wrapper">
+            <div class="categories">
+                <span class="category" data-category="new">New</span>
+                <span class="category" data-category="trending">Trending</span>
+                <span class="category" data-category="dance">Dance</span>
+                <span class="category" data-category="entertainment">Entertainment</span>
+                <span class="category" data-category="music">Music</span>
+                <span class="category" data-category="education">Education</span>
+                <span class="category" data-category="games">Games</span>
+                <span class="category" data-category="news">News</span>
+                <span class="category" data-category="sports">Sports</span>
+                <span class="category" data-category="travel">Travel</span>
+                <span class="category" data-category="nature">Nature</span>
+                <span class="category" data-category="food">Food</span>
+                <span class="category" data-category="comedy">Comedy</span>
+                <span class="category" data-category="technology">Technology</span>
+                <span class="category" data-category="space">Space</span>
+                <span class="category" data-category="fashion-beauty">Fashion & Beauty</span>
+                <span class="category" data-category="vlogs">Vlogs</span>
+            </div>
+        </div>
+        <!-- Content display area -->
+        <div id="contentDisplay" class="content-display"></div>
+    </div>
+
+    
+    <!--User Activity or Menu-->
+    <div id="userActivitySection">
+        <i id="closeIcon" class="fas fa-arrow-left"></i>
+        <div id="iconContainer">
+            <div class="icon-item">
+                <i class="fa-regular fa-thumbs-up"></i>
+                <span></span>
+            </div>
+            <div class="icon-item">
+                <i class="fa-regular fa-thumbs-down"></i>
+                <span></span>
+            </div>
+            <div class="icon-item">
+                <i class="fa-regular fa-comment"></i>
+                <span></span>
+            </div>
+            <div class="icon-item">
+                <i class="fa-regular fa-bookmark"></i>
+                <span></span>
+            </div>
+            <div class="icon-item">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span></span>
+            </div>
+        </div>
+        <p>User Activity Section</p>
+    </div>
+    
+
+        <!-- Navigation Tabs -->
+        <!-- Navigation Tabs -->
+        <div class="nav nav-tabs justify-content-center w-100 navitab-tabs" id="myTab" role="tablist">
+            <div class="nav-item navitab-item">
+                <a class="nav-link navitab-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                    <i class="fas fa-home fa-lg"></i>
+                </a>
+            </div>
+            <div class="nav-item navitab-item">
+                <a class="nav-link navitab-link" id="shorts-tab" data-toggle="tab" href="#shorts" role="tab" aria-controls="shorts" aria-selected="false">
+                    <i class="fas fa-clapperboard fa-lg"></i>
+                </a>
+            </div>
+            <div class="nav-item navitab-item">
+                <a class="nav-link navitab-link" id="following-tab" data-toggle="tab" href="#following" role="tab" aria-controls="following" aria-selected="false">
+                    <i class="fas fa-user-friends fa-lg"></i>
+                </a>
+            </div>
+            <div class="nav-item navitab-item">
+                <a class="nav-link navitab-link" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="false">
+                    <i class="fas fa-images fa-lg"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <!-- Placeholder for home content -->
+                <div class="content-placeholder" id="home-content">
+                    <!-- Content from database will be loaded here -->
+                </div>
+            </div>
+            <div class="tab-pane fade" id="shorts" role="tabpanel" aria-labelledby="shorts-tab">
+                <!-- Placeholder for shorts content -->
+                <div class="content-placeholder" id="shorts-content">
+                    <!-- Content from database will be loaded here -->
+                </div>
+            </div>
+            <div class="tab-pane fade" id="following" role="tabpanel" aria-labelledby="following-tab">
+                <!-- Placeholder for following content -->
+                <div class="content-placeholder" id="following-content">
+                    <!-- Content from database will be loaded here -->
+                </div>
+            </div>
+            <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                <!-- Placeholder for posts content -->
+                <div class="content-placeholder" id="posts-content">
+                    <!-- Content from database will be loaded here -->
+                </div>
+            </div>
+        </div>
+    
+
+ 
+    <!-- Profile Section -->
+    <!-- Profile Section -->
+    <!-- Profile Section -->
+    <!-- Profile Section -->
+    <div id="profileSection" class="profile-section">
+        <div class="profile-header">
+            <i class="fa-solid fa-arrow-left close-profile-icon" aria-label="Close Profile" role="button" tabindex="0"></i>
+            <div class="options-container">
+                <i class="fa-solid fa-gauge-high dashboard-icon" aria-label="dashboard" role="button" tabindex="0"></i>
+                <i class="fa-regular fa-square-plus add-icon" aria-label="Add" role="button" tabindex="0"></i>
+                <i class="fa-solid fa-gear gear-icon" aria-label="Settings" role="button" tabindex="0"></i>
+                <i class="fa-solid fa-ellipsis-vertical options-icon" aria-label="Options" role="button" tabindex="0"></i>
+                <div class="options-dropdown" role="menu">
+                    <a href="#" id="manage" role="menuitem">Manage</a>
+                    <a href="#" id="share" role="menuitem">Share</a>
+                    <a href="#" id="logout" role="menuitem">Logout</a>
+                    <a href="#" id="deactivate" role="menuitem">Deactivate</a>
+                </div>
+            </div>
+        </div>
+        <div class="profile-content">
+            <div class="profile-info">
+                <img src="assets/photos/blank-profile.png" alt="Profile Photo" class="profile-photo-large">
+                <div class="profile-details">
+                    <h2 class="username">username</h2>
+                    <p class="followers">Followers: 1000</p>
+                </div>
+            </div>
+            <div class="buttons-container">
+                <button class="btn edit-profile-btn" id="editProfileBtn">
+                    <i class="fa-solid fa-pencil-alt"></i>Edit Profile
+                </button>
+                <button class="btn share-profile-btn" id="shareProfileBtn">
+                    <i class="fa-solid fa-share"></i>Share Profile
+                </button>
+            </div>
+            <div class="thin-line"></div>
+            <div class="additional-info">
+                <p class="full-name">
+                    <span id="fullNameText">Skylite4real</span>
+                    <input type="text" id="fullNameInput" class="edit-input" style="display: none;" value="jake">
+                </p>
+                <p class="gmail">
+                    <span id="emailText">Skylite@email.com</span>
+                    <input type="email" id="emailInput" class="edit-input" style="display: none;" value="ai@email.com">
+                </p>
+                <p class="dob">
+                    <span id="dobText">00-00-0000</span>
+                    <input type="date" id="dobInput" class="edit-input" style="display: none;" value="2000-02-25">
+                </p>
+                <p class="location">
+                    <span id="locationText">Country, City</span>
+                    <input type="text" id="locationInput" class="edit-input" style="display: none;" value="USA">
+                </p>
+                <p class="about">
+                    <span id="aboutText">💐💐The Skylite is the platform where users🌏
+                        will reach their potential👏.</span>
+                    <textarea id="aboutInput" class="edit-input" style="display: none;">This is about the user.</textarea>
+                </p>
+                <p class="links">
+                    <span id="linksText">http://example.com</span>
+                    <input type="url" id="linksInput" class="edit-input" style="display: none;" value="http://example.com">
+                </p>
+                <p class="profession">
+                    <span id="professionText">Content sharing platform💻</span>
+                    <input type="text" id="professionInput" class="edit-input" style="display: none;" value="Content Creator">
+                </p>
+            </div>
+            <button class="btn update-profile-btn" id="updateProfileBtn" style="display: none;">Update Profile</button>
+            <div class="thin-line"></div>
+            <div class="profile-tabs">
+                <div class="tabs">
+                    <div id="videosTab" class="tab" onclick="showSection('videos')">
+                        <i class="fa-solid fa-film" style="color: #bbc0c3;"></i>
+                    </div>
+                    <div id="shortsTab" class="tab" onclick="showSection('shorts')">
+                        <i class="fa-solid fa-clapperboard" style="color: #bbc0c3;"></i>
+                    </div>
+                    <div id="postsTab" class="tab" onclick="showSection('posts')">
+                        <i class="fa-solid fa-images" style="color: #bbc0c3;"></i>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div id="videosContent" class="content-section active">
+                        <!-- Videos content here -->
+                        <div class="video-item">Video 1</div>
+                        <div class="video-item">Video 2</div>
+                    </div>
+                    <div id="shortsContent" class="content-section">
+                        <!-- Shorts content here -->
+                        <div class="short-item">Short 1</div>
+                        <div class="short-item">Short 2</div>
+                        <div class="short-item">Short 3</div>
+                    </div>
+                    <div id="postsContent" class="content-section">
+                        <!-- Posts content here -->
+                        <div class="post-item">Post 1</div>
+                        <div class="post-item">Post 2</div>
+                        <div class="post-item">Post 3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Settings Section -->
+    <div id="settingsSection" class="settings-section">
+        <i class="fa-solid fa-arrow-left close-settings-icon" aria-label="Close Settings" role="button" tabindex="0"></i>
+        <span class="settings-title">Settings</span>
+        <hr class="settings-divider">
+
+        <div class="settings-content">
+            <!-- Preferences -->
+            <div class="settings-option">
+                <span>Preferences</span>
+            </div>
+
+            <div class="settings-option" id="darkModeToggle">
+                <i class="fa-solid fa-moon"></i>
+                <span>Dark Mode</span>
+                <i class="fa-solid fa-angle-down toggle-icon"></i>
+            </div>
+            
+            <div class="sub-option" id="darkModeOptions">
+                <label><input type="checkbox" id="darkModeEnable"> Enable</label>
+                <label><input type="checkbox" id="darkModeDisable"> Disable</label>
+            </div>
+
+            <div class="settings-option" id="notificationToggle">
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+                <i class="fa-solid fa-angle-down toggle-icon"></i>
+            </div>
+            <div class="sub-option" id="notificationOptions">
+                <label><input type="checkbox"> Notify me of updates on my content</label>
+                <label><input type="checkbox"> Notify me of Product updates and announcements</label>
+                <label><input type="checkbox"> Notify me of promotional content</label>
+            </div>
+
+            <div class="settings-option" id="languageToggle">
+                <i class="fa-solid fa-language"></i>
+                <span>Languages</span>
+                <i class="fa-solid fa-angle-down toggle-icon"></i>
+            </div>
+            <div class="sub-option" id="languageOptions">
+                <label><input type="checkbox"> English</label>
+                <label><input type="checkbox"> Spanish</label>
+                <label><input type="checkbox"> French</label>
+                <label><input type="checkbox"> German</label>
+                <label><input type="checkbox"> Chinese</label>
+            </div>
+
+            <div class="settings-option" id="mediaControlToggle">
+                <i class="fa-solid fa-video"></i>
+                <span>Media Control</span>
+                <i class="fa-solid fa-angle-down toggle-icon"></i>
+            </div>
+            <div class="sub-option" id="mediaControlOptions">
+                <label><input type="checkbox"> Recommended</label>
+                <label><input type="checkbox"> Medium Quality</label>
+                <label><input type="checkbox"> High Quality</label>
+            </div>
+
+            <div class="settings-option" id="sensitiveContentToggle">
+                <i class="fa-solid fa-exclamation-triangle"></i>
+                <span>Sensitive Content</span>
+                <i class="fa-solid fa-angle-down toggle-icon"></i>
+            </div>
+            <div class="sub-option" id="sensitiveContentOptions">
+                <label><input type="checkbox"> Normal</label>
+                <label><input type="checkbox"> Medium</label>
+                <label><input type="checkbox"> More</label>
+            </div>
+
+            <div class="settings-option" id="profileVisibilityToggle">
+                <i class="fa-solid fa-user"></i>
+                <span>Profile Visibility</span>
+                <i class="fa-solid fa-angle-down toggle-icon"></i>
+            </div>
+            <div class="sub-option" id="profileVisibilityOptions">
+                <label><input type="checkbox"> Public</label>
+                <label><input type="checkbox"> Private</label>
+            </div>
+
+            <hr class="settings-divider">
+
+            <!-- Controls -->
+            <div class="settings-option">
+                <span>Controls</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-play"></i>
+                <span>Play Your Ads</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-clock"></i>
+                <span>Time on Skylite</span>
+            </div>
+
+            <hr class="settings-divider">
+
+            <!-- Help & Support -->
+            <div class="settings-option">
+                <span>Help & Support</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-database"></i> <!-- Added icon -->
+                <span>Your data on Skylite</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-file-contract"></i>
+                <span>Terms of Service</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-shield-alt"></i>
+                <span>Privacy Policy</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-exclamation-circle"></i>
+                <span>Report a Problem</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-comment-dots"></i>
+                <span>Feedback</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-book"></i>
+                <span>User Guide</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-info-circle"></i>
+                <span>About</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Upload Section -->
+    <!-- Upload Section -->
+    <div class="upload-section" id="uploadSection">
+        <i class="fa fa-arrow-left back-icon" aria-label="Back" role="button" tabindex="0"></i>
+        <h5 class="video-section-header">SkyLite</h5>
+
+        <!-- Tabs above the line -->
+        <div class="upload-tabs">
+            <span class="tab" onclick="showTabContent('video')">Video</span>
+            <span class="tab" onclick="showTabContent('short')">Short</span>
+            <span class="tab" onclick="showTabContent('post')">Post</span>
+        </div>
+
+        <!-- Horizontal line below the tabs -->
+        <hr class="upload-divider">
+
+        <!-- Initial message displayed on load -->
+        <div id="initialMessage" style="display: none; text-align: center; padding: 20px;">
+            <h3>This is the upload section of SKYLITE</h3>
+            <p>You can upload your content here.</p>
+        </div>
+
+        <!-- Content of the tabs -->
+        <div class="tab-content" id="videoContent">
+            <div class="steps">
+                <div class="step" onclick="showSectionContent('chooseMedia')">Choose Media</div>
+                <div class="step" onclick="showSectionContent('videoDetails')">Video Details</div>
+                <div class="step" onclick="showSectionContent('advanced-Media')">Advanced</div>
+                <div class="step" onclick="showSectionContent('privacyVisibilitymedia')">Privacy</div>
+                <div class="step" onclick="showSectionContent('monetizationmedia')">Monetization</div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="shortContent">
+            <div class="steps">
+                <div class="step" onclick="showSectionContent('chooseShort')">Choose Short</div>
+                <div class="step" onclick="showSectionContent('shortDetails')">Short Details</div>
+                <div class="step" onclick="showSectionContent('advanced-short')">Advanced</div>
+                <div class="step" onclick="showSectionContent('privacyVisibility')">Privacy</div>
+                <div class="step" onclick="showSectionContent('monetizationshort')">Monetization</div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="postContent">
+            <div class="steps">
+                <div class="step" onclick="showSectionContent('choosePosts')">Choose Posts</div>
+                <div class="step" onclick="showSectionContent('postDetails')">Post Details</div>
+                <div class="step" onclick="showSectionContent('advanced-post')">Advanced</div>
+                <div class="step" onclick="showSectionContent('privacyVisibilityPost')">Privacy</div>
+            </div>
+        </div>
+
+        <!-- New Video Preview Box -->
+        <div class="preview-box" id="previewBox">
+            <h4>Video Preview</h4>
+            <div id="videoPreview" class="video-preview">
+                <!-- Video preview will be displayed here -->
+            </div>
+            <button id="closePreviewButton" class="close-preview-button" onclick="closePreview()">Close Preview</button>
+        </div>  
+
+        <!-- Main Content Box -->
+        <div class="box-content" id="boxContent">
+            <!-- Choose Media Content -->
+            <div id="chooseMediaContent" style="display: none;">
+                <h3 class="section-names">Choose Media</h3>
+                <p id="videoSection" class="step-1">This is the step-1 of video upload process. Make sure to choose the best video to get more views.</p>
+                <!-- Video Upload Terms and Privacy -->
+                <p id="termsSummary">By uploading a video to our platform, you agree to the following terms and conditions:<span id="learnMore" class="blue-text" onclick="toggleTerms()">learn more</span></p>
+                <div id="termsDetails" class="scrollable-content" style="display: none;">
+                    <!-- Terms and conditions content here -->
+                </div>
+
+                <!-- Video Upload Section -->
+                <div id="circle1Content" class="circle-content">
+                    <div class="video-upload-wrapper">
+                        <div class="video-upload-item">
+                            <i class="fa-solid fa-circle-info" onclick="toggleVideoInfo()"></i>
+                            <div id="videoInfo" class="info-box scrollable-content" style="display: none;">
+                                <p class="info-of-media">Upload Your Best Video</p>
+                                <p class="info-of-media">Click the "Choose Video" button to select the video you want to upload.</p>
+                                <p class="info-of-media">Video Specifications:</p>
+                                <ul>
+                                    <li>Supported Formats: [List supported video formats, e.g., MP4, MOV, AVI]</li>
+                                    <li>Maximum File Size: [Specify maximum file size in MB or GB]</li>
+                                    <li>Recommended Resolution: [Suggest optimal resolution, e.g., 1080p]</li>
+                                </ul>
+                                <p class="info-of-media">Note: Videos with different aspect ratios will be automatically adjusted to fit the player and device.</p>
+                            </div>
+                            <div id="videoBox" class="display-box">
+                                <input type="file" id="videoFile" accept="video/*" style="display: none;" onchange="displayVideo(this)">
+                                <div class="choose-video-button" onclick="document.getElementById('videoFile').click();">
+                                    <i class="fa-solid fa-video"></i>
+                                    <span class="blue-text">Choose Video</span>
+                                </div>
+                                <p id="videoDescription" class="description">Please click the button above to upload a video file from your device. Ensure the video is in a compatible format and adheres to the specified file size limits. Once uploaded, a preview will be available below.</p>
+                                <i class="fa-solid fa-xmark close-icon" onclick="clearVideo()"></i>
+                            </div>
+                            <div class="framecontainer" id="framesContainer"></div>
+                        </div>
+                        <div class="video-upload-item">
+                            <i class="fa-solid fa-circle-info" onclick="toggleThumbnailInfo()"></i>
+                            <div id="thumbnailInfo" class="info-box scrollable-content" style="display: none;">
+                                <p class="info-of-media">Choose Your Thumbnail</p>
+                                <p class="info-of-media">Click the "Choose Thumbnail" button to select the image you want to use as a thumbnail.</p>
+                                <p class="info-of-media">Select an eye-catching image to represent your video. A great thumbnail can significantly increase views.</p>
+                                <p class="info-of-media">Recommended Aspect Ratio: 16:9 for optimal display.</p>
+                                <p class="info-of-media">Image Format:</p>
+                                <ul>
+                                    <li>[List supported image formats, e.g., JPEG, PNG]</li>
+                                </ul>
+                            </div>
+                            <div id="thumbnailBox" class="display-box">
+                                <input type="file" id="thumbnailFile" accept="image/*" style="display: none;" onchange="displayThumbnail(this)">
+                                <div class="choose-thumbnail-button" onclick="document.getElementById('thumbnailFile').click();">
+                                    <i class="fa-solid fa-image"></i>
+                                    <span class="blue-text">Choose Thumbnail</span>
+                                </div>
+                                <i class="fa-solid fa-xmark close-icon" onclick="clearThumbnail()"></i>
+                            </div>
+                            <hr class="choose-media-line">
+                            <button id="videoPreviewButton" class="video-preview-button" style="display: none;" onclick="previewVideo()">Preview</button>
+                            <button id="nextButton" class="next-button-of-the-video-details-of-the-media-tab" onclick="goToVideoDetails()">Next</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            
+            <!-- Video Details Content -->
+            <!-- video details content of the choose media-->
+            <div class="video-details-of-the-media-tab" id="videoDetailsContent" style="display: none;">
+                <h3 class="section-names">Video Details</h3>
+                <p id="videoSection" class="step-2">You have successfully completed Step-1. This is Step-2 of the video upload process. Make sure to click the "i" button and read the descriptions. Fill in the necessary information.</p>
+                
+                <div class="input-container">
+                    <i class="fa fa-circle-info fa-circle-info-video-details" id="infoTitle"></i>
+                    <label class="contents-of-video-details" for="videoTitle">Title (Mandatory):</label>
+                    <div class="info-box-video-details" id="infoBoxTitle" style="display: none;">
+                        <p class="info-of-detail">A concise and compelling headline that accurately reflects the video's content.</p>
+                        <p class="info-of-detail">Includes relevant keywords for search engine optimization (SEO).</p>
+                    </div>
+                    <input type="text" id="videoTitle" name="videoTitle">
+                </div>
+            
+                <div class="input-container">
+                    <div class="input-container-category">
+                        <i class="fa fa-circle-info fa-circle-info-video-details" id="infoCategory"></i>
+                        <label class="contents-of-video-details" for="videoCategory">Category (Mandatory):</label>
+                        <div class="info-box-video-details" id="infoBoxCategory" style="display: none;">
+                            <p class="info-of-detail">Select the most appropriate category on the video platform based on the video's content.</p>
+                        </div>
+                    </div>
+
+                    <select id="videoCategory" name="videoCategory">
+                        <!-- Populate with options from categories.txt -->
+                        <option value="" disabled selected>Select a category</option>
+                        <!-- Insert options here using JavaScript -->
+                    </select>
+                </div>
+            
+                <div class="input-container">
+                    <i class="fa fa-circle-info fa-circle-info-video-details" id="infoDescription"></i>
+                    <label class="contents-of-video-details" for="videoDescription">Description:</label>
+                    <div class="info-box-video-details" id="infoBoxDescription" style="display: none;">
+                        <p class="info-of-detail">A detailed and informative overview of the video's content.</p>
+                        <p class="info-of-detail">Uses keywords naturally to improve discoverability.</p>
+                        <p class="info-of-detail">Includes a call-to-action (CTA) to encourage viewer engagement.</p>
+                        <p class="info-of-detail">Can incorporate relevant links (e.g., to your website, social media, or related videos).</p>
+                    </div>
+                    <textarea id="videoDescriptionInput" name="videoDescription"></textarea>
+                </div>
+            
+                <div class="input-container">
+                    <i class="fa fa-circle-info fa-circle-info-video-details" id="infoTags"></i>
+                    <label class="contents-of-video-details" for="videoTags">Tags:</label>
+                    <div class="info-box-video-details" id="infoBoxTags" style="display: none;">
+                        <p class="info-of-detail">Relevant keywords that describe the video's content.</p>
+                        <p class="info-of-detail">A mix of general and specific tags to reach a wider audience.</p>
+                    </div>
+                    <input type="text" id="videoTags" name="videoTags">
+                </div>
+            
+                <div class="middle-box-controls">
+                    <hr class="choose-media-line">
+                    <button id="goBackButton" class="go-back-button-of-the-video-details-section" onclick="goBack()">Go Back</button>
+                    <button id="videoDetailsNextButton" class="next-button-of-the-video-details-section" onclick="proceedToNextSection()">Next</button>
+                </div>
+            </div>
+
+
+
+            <!-- Advanced Details-->
+            <!-- Advanced Details -->
+            <!-- Advanced Details -->
+            <div class="advanced-details-of-choose-media-tab" id="advancedDetailsContent" style="display: none;">
+                <h3 class="section-names">Advanced Details</h3>
+                <p id="videoSection" class="step-3">You have successfully completed Step-2. This is Step-3 of the video upload process. Make sure to click the "i" button and read the descriptions. Fill in the necessary information.</p>
+
+                
+                <!-- Video Language -->
+                <div class="advanced-details-input-container">
+                    <div class="icon-label-container">
+                       <i class="fa fa-circle-info fa-circle-info-advanced-details-language" id="infoCategory"></i>
+                       <label class="contents-of-advanced-video" for="videoLanguage">Video Language</label>
+                       <div class="info-box-advanced-details" id="infoBoxVideoLanguage" style="display: none;">
+                            <p class="info-of-advanced">Select the main language spoken in your video. This helps categorize your content, making it easier for viewers to find videos in their preferred language.</p>
+                            <p class="info-of-advanced">Add other languages spoken in the video. This is useful if your video includes multiple languages or has been dubbed/subtitled in other languages.</p>
+                        </div>
+                    </div>
+
+                    <select id="videoLanguage" name="videoLanguage" class="advanced-details-select">
+                        <option value="" disabled selected>Select a language</option>
+                        <!-- Populate with options from categories.txt -->
+                        <option value="English">English</option>
+                        <option value="Spanish">Spanish</option>
+                        <!-- More options from categories.txt -->
+                    </select>
+                    <input type="text" id="additionalLanguages" name="additionalLanguages" placeholder="Add additional languages" class="advanced-details-input">
+                </div>
+
+
+                <!-- Video Quality -->
+                <!-- Video Quality -->
+                <!-- Video Quality -->
+                <div class="advanced-details-input-container-video-resolution">
+                    <div class="advanced-label-container-video-resolution">
+                        <label class="contents-of-advanced-video" for="resolution">Video Resolution</label>
+                    </div>
+
+                    <div class="circle-dot-advanced-details">
+                        <div>
+                            <input type="radio" id="videoResolution4K" name="resolutionOption" value="4K">
+                            <label class="sub-options-of-advanced-video" for="videoResolution4K">4K</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="videoResolution1080p" name="resolutionOption" value="1080p">
+                            <label class="sub-options-of-advanced-video" for="videoResolution1080p">1080p</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="videoResolution720p" name="resolutionOption" value="720p">
+                            <label class="sub-options-of-advanced-video" for="videoResolution720p">720p</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="videoResolutionOther" name="resolutionOption" value="Other">
+                            <label class="sub-options-of-advanced-video" for="videoResolutionOther">Other</label>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- People Featured -->
+                <div class="advanced-details-input-container">
+                    <i class="fa fa-circle-info fa-circle-info-advanced-details" id="infoCategory"></i>
+                    <label class="contents-of-advanced-video" for="peopleFeatured">People Featured</label>
+                    <div class="info-box-advanced-details" id="infoBoxPeopleFeatured" style="display: none;">
+                        <p class="info-of-advanced">Include the names and roles of individuals featured in the video. This can help in crediting participants and improving searchability.</p>
+                    </div>
+                    <textarea id="peopleFeatured" name="peopleFeatured" placeholder="List names and roles of individuals featured in the video" class="advanced-details-textarea"></textarea>
+                </div>
+
+                <!-- Content Warning -->
+                <!-- Content Warning -->
+                <div class="advanced-details-input-container-box">
+                    <div class="advanced-label-container">
+                        <label class="contents-of-advanced-video" for="contentWarnings">Content Warnings</label>
+                    </div>
+                    <div class="circle-dot-advanced-details">
+                        <div>
+                            <input type="radio" id="contentWarningViolence" name="contentWarningOption" value="Violence">
+                            <label class="sub-options-of-advanced-video" for="contentWarningViolence">Violence</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="contentWarningNudity" name="contentWarningOption" value="Nudity">
+                            <label class="sub-options-of-advanced-video" for="contentWarningNudity">Nudity</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="contentWarningStrongLanguage" name="contentWarningOption" value="Strong Language">
+                            <label class="sub-options-of-advanced-video" for="contentWarningStrongLanguage">Strong Language</label>
+                        </div>
+                        <!-- Add more content warnings as needed -->
+                    </div>
+                </div>
+
+                <!-- Age Restrictions-->
+                <!-- Age Restrictions -->
+                <div class="advanced-details-input-container-box">
+                    <div class="advanced-label-container">
+                        <label class="contents-of-advanced-video" for="ageRestrictions">Age Restrictions</label>
+                    </div>
+                    <div class="circle-dot-advanced-details">
+                        <div>
+                            <input type="radio" id="ageRestrictionAllAges" name="ageRestrictionOption" value="All Ages">
+                            <label class="sub-options-of-advanced-video" for="ageRestrictionAllAges">All Ages</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="ageRestriction13Plus" name="ageRestrictionOption" value="13+">
+                            <label class="sub-options-of-advanced-video" for="ageRestriction13Plus">13+</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="ageRestriction18Plus" name="ageRestrictionOption" value="18+">
+                            <label class="sub-options-of-advanced-video" for="ageRestriction18Plus">18+</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keywords for SEO -->
+                <div class="advanced-details-input-container">
+                    <i class="fa fa-circle-info fa-circle-info-advanced-details" id="infoCategory"></i>
+                    <label class="contents-of-advanced-video" for="seoKeywords">Keywords for SEO</label>
+                    <div class="info-box-advanced-details" id="infoBoxSeoKeywords" style="display: none;">
+                        <p class="info-of-advanced">Add relevant keywords to improve your video’s search engine optimization (SEO). This makes your video more discoverable to users searching for specific topics.</p>
+                    </div>
+                    <textarea id="seoKeywords" name="seoKeywords" placeholder="Add relevant keywords to improve your video’s SEO" class="advanced-details-textarea"></textarea>
+                </div>
+
+                <!-- Chapter Markers -->
+                <div class="advanced-details-input-container">
+                    <i class="fa fa-circle-info fa-circle-info-advanced-details" id="infoCategory"></i>
+                    <label class="contents-of-advanced-video" for="chapterMarkers">Chapter Markers</label>
+                    <div class="info-box-advanced-details" id="infoBoxChapterMarkers" style="display: none;">
+                        <p class="info-of-advanced">Insert timestamps with titles to create chapters in your video. This allows viewers to jump to specific sections, enhancing the viewing experience.</p>
+                    </div>
+                    <textarea id="chapterMarkers" name="chapterMarkers" placeholder="Insert timestamps with titles to create chapters in your video" class="advanced-details-textarea"></textarea>
+                </div>
+
+                <!-- Licensing -->
+                <!-- License Type -->
+                <div class="advanced-details-input-container-box">
+                    
+                    <div class="advanced-label-container">
+                        <label class="contents-of-advanced-video" for="licenseType">License Type</label>
+                        <p>Select the License to make the video upload proper, and learn more.</p>
+                    </div>
+                    <div class="circle-dot-advanced-details">
+                        <div>
+                            <input type="radio" id="licenseTypeStandardLicense" name="licenseTypeOption" value="Standard License">
+                            <label class="sub-options-of-advanced-video" for="licenseTypeStandardLicense">Standard License</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" id="licenseTypeCreativeCommons" name="licenseTypeOption" value="Creative Commons">
+                            <label class="sub-options-of-advanced-video" for="licenseTypeCreativeCommons">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location Settings -->
+                <div class="advanced-details-input-container">
+                    <i class="fa fa-circle-info fa-circle-info-advanced-details" id="infoCategory"></i>
+                    <label class="contents-of-advanced-video" for="locationTags">location</label>
+                    <div class="info-box-advanced-details" id="infoBoxLocationTags" style="display: none;">
+                        <p class="info-of-advanced">Tag the location where the video was recorded. This adds contextual information and can make your video more discoverable for location-based searches.</p>
+                    </div>
+
+                    <input type="text" id="locationTags" name="locationTags" placeholder="Tag the location where the video was recorded" class="advanced-details-input">
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="middle-box-controls">
+                    <hr class="choose-media-line">
+                    <button id="advancedDetailsgoBackButton" class="go-back-button-of-the-advanced-details-section" onclick="goBack('videoDetails')">Go Back</button>
+                    <button id="advancedDetailsNextButton" class="next-button-of-the-advanced-details-section" onclick="proceedToNextSection()">Next</button>
+                </div>
+            </div>
+
+
+
+            <!-- privacy and visibilty-->
+            <!-- privacy and visibilty-->
+            <!-- privacy and visibility-->
+            <!-- Privacy and Visibility -->
+            <div class="Privacy-and-Visibility-of-choose-media-tab" id="PrivacyandVisibilityContent" style="display: none;">
+                <h3 class="section-names">Privacy and Visibility</h3>
+                <p id="videoSection" class="step-4">You have successfully completed Step-3. This is Step-4 of the video upload process. Make sure to click the "i" button and read the descriptions. Fill in the necessary information.</p>
+                
+                <!-- Visibility -->
+                <div class="advanced-details-input-container-visibility">
+                    <div class="icon-label-container-visibility">
+                        <label class="contents-of-privacy-video" for="visibility">Visibility</label>
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="radio" id="publicVisibility" name="visibilityOption" value="public">
+                        <label class="sub-options-of-privacy-video" for="publicVisibility">Public</label>
+                        <p class="info-of-privacy">Public: Your video is accessible to anyone on our Platform. Choose this option if you want the widest possible audience.</p>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="radio" id="privateVisibility" name="visibilityOption" value="private">
+                        <label class="sub-options-of-privacy-video" for="privateVisibility">Private</label>
+                        <p class="info-of-privacy">Private: Your video can only be viewed by specific users. Use this option for highly restricted access.</p>
+                    </div>
+                </div>
+
+                <!-- Share Settings -->
+                <div class="advanced-details-input-container-share-settings">
+                    <div class="icon-label-container-share-settings">
+                        <label for="shareSettings">Share Settings</label>
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="radio" id="allowEmbed" name="embedOption" value="allow">
+                        <label class="sub-options-of-privacy-video" for="allowEmbed">Allow Embedding</label>
+                        <p class="info-of-privacy">Embed Options: Allow or disallow embedding of your video on other websites. Enabling this can increase your video’s reach through external sites.</p>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="radio" id="allowShare" name="shareOption" value="allow">
+                        <label class="sub-options-of-privacy-video" for="allowShare">Allow Sharing</label>
+                        <p class="info-of-privacy">Share Permissions: Control whether viewers can share your video link. This helps manage the distribution of your content.</p>
+                    </div>
+                </div>
+
+                <!-- Comments -->
+                <div class="advanced-details-input-container-comments">
+                    <div class="icon-label-container-comments">
+                        <label for="comments">Comments</label>
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="radio" id="allowComments" name="commentOption" value="allow">
+                        <label class="sub-options-of-privacy-video" for="allowComments">Allow Comments</label>
+                        <p class="info-of-privacy">Allow Comments: Enable viewers to comment on your video. Engaging with comments can build community and provide valuable feedback.</p>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="radio" id="disableComments" name="commentOption" value="disable">
+                        <label class="sub-options-of-privacy-video" for="disableComments">Disable Comments</label>
+                        <p class="info-of-privacy">Disable Comments: Disable viewers from commenting on your video.</p>
+                    </div>
+                </div>
+
+                <!-- Viewer Interaction -->
+                <div class="advanced-details-input-container-viewer-interaction">
+                    <div class="icon-label-container-viewer-interaction">
+                        <label for="viewerInteraction">Viewer Interaction</label>
+                    </div>            
+                    <div class="checkbox-container">
+                        <input type="radio" id="allowLikes" name="likeOption" value="allow">
+                        <label class="sub-options-of-privacy-video" for="allowLikes">Allow Likes & Dislikes</label>
+                        <p class="info-of-privacy">Likes and Dislikes: Allow viewers to like or dislike your video. This provides instant feedback on your content’s reception.</p>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="radio" id="enableRatings" name="ratingOption" value="enable">
+                        <label class="sub-options-of-privacy-video" for="enableRatings">Enable Viewer Ratings</label>
+                        <p class="info-of-privacy">Viewer Ratings: Enable a rating system (e.g., star ratings) for more detailed feedback from viewers.</p>
+                    </div>
+                </div>
+
+                <!-- Watch Time Analytics -->
+                <div class="advanced-details-input-container-content-analytics">
+                    <div class="icon-label-container-content-analytics">
+                        <label for="contentAnalytics">Content Analytics</label>
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="radio" id="enableAnalytics" name="analyticsOption" value="enable">
+                        <label class="sub-options-of-privacy-video" for="enableAnalytics">Content Analytics</label>
+                        <p class="info-of-privacy">Enable Analytics: Access detailed metrics on the Video and audience retention. This data helps you understand viewer behavior and improve future content.</p>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="advanced-details-input-container-notifications">
+                    <div class="icon-label-container-notifications">
+                        <label for="notifications">Notifications</label>
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="radio" id="notifyFollowers" name="notificationOption" value="notify">
+                        <label class="sub-options-of-privacy-video" for="notifyFollowers">Notify Followers</label>
+                        <p class="info-of-privacy">Notify Followers: Send notifications to your Followers when your video is published. This ensures your loyal audience is aware of new content immediately.</p>
+                    </div>
+                </div>
+
+                <div class="middle-box-controls">
+                    <hr class="choose-media-line">
+                    <button id="PrivacyandVisibilitygoBackButton" class="go-back-button-of-the-privacy-and-visibility" onclick="goBack()">Go Back</button>
+                    <button id="PrivacyandVisibilityNextButton" class="next-button-of-the-privacy-and-visibility" onclick="proceedToNextSection()">Next</button>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <!-- Monetization of choose media -->
+            <!-- Monetization of choose media -->
+            <!-- Monetization of choose media -->
+            <!-- Monetization of choose media -->
+            <!-- Monetization of choose media -->
+            <div class="monetization-of-choose-of-choose-media-tab" id="MonetizationOfChooseMediaContent">
+                <h3 class="section-names">Monetization</h3>
+                <p id="videoSection" class="step-5">You have successfully completed Step-4. This is Step-5 of the video upload process. Make sure to click the "i" button and read the descriptions. Fill in the necessary information.</p>
+
+                <div class="input-container-monetization-of-choose-media-logo">
+                    <div class="logo-label-container-monetization-of-choose-media">
+                        <label for="monetizationStatus"></label>
+                        <h5 style="font-weight: bold;">SKYLite Partnership</h5>
+                        <p>This is the part where you can "Turn On" the Monetization</p>
+                        <p>SKYLite Partnership Requirements</p>
+                    </div>
+                </div>
+
+                <div class="input-container-monetization-of-choose-media">
+                    <div class="icon-label-container-monetization-of-choose-media">
+                        <label class="content-of-monet-video" for="adPreferences">Ad Preferences</label>
+                    </div>
+                    
+                    <div class="radio-container-pre-roll input-boxes-monet-video">
+                        <input type="radio" id="preRoll" name="adPreferences" value="Pre-roll">
+                        <label class="monet-options-video" for="preRoll"> Pre-roll</label>
+                        <p class="info-of-mone-video">Pre-roll Ads: Ads that play before the main content starts. These ads are shown to viewers before they engage with the video, ensuring that the advertisement is seen before the content begins.</p>
+                    </div>
+                    
+                    <div class="radio-container-mid-roll input-boxes-monet-video">
+                        <input type="radio" id="midRoll" name="adPreferences" value="Mid-roll">
+                        <label class="monet-options-video" for="midRoll"> Mid-roll</label>
+                        <p class="info-of-mone-video">Mid-roll Ads: Ads that appear during the middle of the content, often placed during natural breaks or transitions. They are effective for longer videos as they capture viewers' attention partway through, but they can interrupt the viewing experience.</p>
+                    </div>
+                    
+                    <div class="radio-container-post-roll input-boxes-monet-video">
+                        <input type="radio" id="postRoll" name="adPreferences" value="Post-roll">
+                        <label class="monet-options-video" for="postRoll"> Post-roll</label>
+                        <p class="info-of-mone-video">Post-roll Ads: Ads that play after the main content ends. These ads target viewers who have watched the entire video, making them ideal for engaging those who are already fully engaged with the content.</p>
+                    </div>
+                    
+                    <div class="radio-container-banner-ads input-boxes-monet-video">
+                        <input type="radio" id="bannerAds" name="adPreferences" value="Banner Ads">
+                        <label class="monet-options-video" for="bannerAds"> Banner Ads</label>
+                        <p class="info-of-mone-video">Banner Ads: Visual ads displayed on the screen, typically at the top or bottom. They can be static or interactive, providing a less intrusive way to display advertisements while viewers consume content.</p>
+                    </div>
+                    
+                    <div class="radio-container-skippable-ads input-boxes-monet-video">
+                        <input type="radio" id="skippableAds" name="adPreferences" value="Skippable Ads">
+                        <label class="monet-options-video" for="skippableAds"> Skippable Ads</label>
+                        <p class="info-of-mone-video">Skippable Ads: These ads can be skipped by viewers after a few seconds. They are designed to be less intrusive and can provide a better user experience, but they may generate less revenue as viewers might skip them before the ad finishes.</p>
+                    </div>
+                    
+                    <div class="radio-container-non-skippable-ads input-boxes-monet-video">
+                        <input type="radio" id="nonSkippableAds" name="adPreferences" value="Non-Skippable Ads">
+                        <label class="monet-options-video" for="nonSkippableAds"> Non-Skippable Ads</label>
+                        <p class="info-of-mone-video">Non-Skippable Ads: These ads must be watched in full before the content plays. They can be more lucrative due to their guaranteed viewership, but they may affect viewer retention by disrupting the content experience.</p>
+                    </div>
+                </div>
+
+                <div class="input-container-monetization-of-choose-media">
+                    <div class="icon-label-container-monetization-of-choose-media">
+                        <label class="content-of-monet-video" for="sponsorships">Sponsorships and Brand Deals</label>
+                    </div>
+
+                    <div class="radio-container-sponsored-content input-boxes-monet-video">
+                        <input type="radio" id="sponsoredContent" name="sponsorships" value="Sponsored Content Disclosure">
+                        <label class="monet-options-video" for="sponsoredContent"> Sponsored Content Disclosure</label>
+                        <p class="info-of-mone-video">Sponsored Content Disclosure: Indicate if your video includes sponsored content. Transparency about sponsorships builds trust with your audience.<br>
+                            Brand Deal Details: Enter details about your sponsors and the terms of the deal. This information can be useful for managing partnerships and disclosures.</p>
+                    </div>
+                    
+                    <label class="content-of-monet-video-sub" for="brandDealDetails">Brand Deal Details:</label><br>
+                    <textarea id="brandDealDetails" name="brandDealDetails" rows="4" cols="50"></textarea>
+                </div>
+
+                <div class="input-container-monetization-of-choose-media">
+                    <div class="icon-label-container-monetization-of-choose-media">
+                        <label class="content-of-monet-video" for="merchandise">Merchandise</label>
+                    </div>
+
+                    <div class="radio-container-merchandise-shelf input-boxes-monet-video">
+                        <input type="radio" id="merchandiseShelf" name="merchandise" value="Merchandise Shelf">
+                        <label class="monet-options-video" for="merchandiseShelf"> Merchandise Shelf</label>
+                        <p class="info-of-mone-video">Merchandise Shelf: Display your merchandise below the video. This can increase sales by promoting your products directly to viewers.<br>
+                            Store Link: Provide a link to your merchandise store for viewers to purchase items.</p>
+                    </div>
+                    
+                    <label class="content-of-monet-video-sub" for="storeLink">Store Link:</label><br>
+                    <input type="text" id="storeLink" name="storeLink"><br>
+                </div>
+
+                <div class="input-container-monetization-of-choose-media">
+                    <div class="icon-label-container-monetization-of-choose-media">
+                        <label class="content-of-monet-video" for="donations">Donations</label>
+                    </div>
+
+                    <div class="radio-container-enable-donations input-boxes-monet-video">
+                        <input type="radio" id="enableDonations" name="donations" value="Enable Donations">
+                        <label class="monet-options-video" for="enableDonations"> Enable Donations</label>
+                        <p class="info-of-mone-video">Enable Donations: Allow viewers to donate or tip you. This can be a direct way to support your content creation.<br>
+                            Donation Platforms: Link to donation platforms like Patreon or Ko-fi. This makes it easy for viewers to support you financially.<br>
+                            Donation Goals: Display current donation goals and progress to encourage viewer contributions.</p>
+                    </div>
+                    
+                    <label class="content-of-monet-video-sub" for="donationPlatforms">Donation Platforms:</label><br>
+                    <input type="text" id="donationPlatforms" name="donationPlatforms"><br>
+                    <label class="content-of-monet-video-sub" for="donationGoals">Donation Goals:</label><br>
+                    <textarea id="donationGoals" name="donationGoals" rows="4" cols="50"></textarea>
+                </div>
+
+                <div class="input-container-monetization-of-choose-media">
+                    <div class="icon-label-container-monetization-of-choose-media">
+                        <label class="content-of-monet-video" for="revenueSharing">Revenue Sharing</label>
+                        <p class="info-of-mone-video">Revenue Split: Understand how revenue is shared between the platform and you. This helps you anticipate earnings.<br>
+                        Payment Thresholds: Learn about minimum earnings required before payouts are made. This information is crucial for financial planning.</p>
+                    </div>
+                </div>
+
+                <div class="middle-box-controls-monet">
+                    <hr class="choose-media-line">
+                    <button id="MonetizationOfChooseMediaContentgoBackButton" class="go-back-button-of-the-monetization-of-choose-media" onclick="goBack()">Go Back</button>
+                    <button id="MonetizationOfChooseMediaContentSubmitButton" class="Submit-button-of-the--monetization-of-choose-media" onclick="proceedToSubmit()">Submit</button>
+                </div>
+            </div>
+
+ 
+        </div>
+       
+    </div> <!--Upload section div-->
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+        
+
+
+
+
+
+
+    <!-- Short Section -->
+    
+    <!-- Post Section -->
+    
+    <!-- Bootstrap JavaScript and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="./codex/sidebar/sidebar.js"></script>
+
+    <script src="./codex/sidebar/settings/settings.js"></script>
+
+    <script src="./codex/profile-picture/profile/profile.js"></script>
+
+    <script src="./codex/profile-picture/add/actual/add.js"></script>
+
+
+    <script src="./codex/main-feed/feeds.js"></script>
+
+    <script src="./codex/search/search.js"></script>
+
+    <script src="./codex/forms/media/vid.js"></script>
+    <script src="./codex/forms/media/choose-video/choose-media.js"></script>
+
+
+    <script src="./codex/Manage-Content/Manage-content.js"></script>
+
+
+</body>
+</html>
